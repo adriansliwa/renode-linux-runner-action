@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Antmicro Ltd.
+# Copyright 2022-2025 Antmicro Ltd.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -177,7 +177,7 @@ def get_device(devices: str) -> Iterator[Device]:
         return suspect if suspect is not None else {}
 
     def add_colon_if_no_params(line: str) -> str:
-        return line if ":" in line or len(line.split()) > 1 else f"{line}:"
+        return line if ":" in line or len(line.split()) > 1 else f"{line}:"  # noqa: E231
 
     def device_available(device: str) -> bool:
         if device not in available_devices:

@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Antmicro Ltd.
+# Copyright 2022-2025 Antmicro Ltd.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -180,7 +180,7 @@ def burn_rootfs_image(
                 print("INFO: Currently, there are not many official Docker images available for the riscv64 architecture. Alternatives can often be found under 'riscv64/image:tag'.")
             exit(1)
         except requests.HTTPError:
-            print(f"Image {library}/{image}:{tag} does not exist!")
+            print(f"Image {library}/{image}:{tag} does not exist!")  # noqa: E231
             if tag == "latest":
                 print("INFO: Perhaps there is no 'latest' tag for this image.")
             exit(1)
