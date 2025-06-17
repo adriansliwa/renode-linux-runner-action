@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Antmicro Ltd.
+# Copyright 2022-2025 Antmicro Ltd.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ def get_packages(arch: str, packages: str) -> tuple[list[str], list[str]]:
     # python packages files ready to sideload
     downloaded_packages = []
 
-    child = px.spawn(f'sh -c "cd {os.getcwd()};exec /bin/sh"', encoding="utf-8", timeout=60)
+    child = px.spawn(f'sh -c "cd {os.getcwd()}; exec /bin/sh"', encoding="utf-8", timeout=60)  # noqa: E702
 
     try:
         child.expect_exact('#')
@@ -90,10 +90,6 @@ def get_packages(arch: str, packages: str) -> tuple[list[str], list[str]]:
         )
 
         run_cmd(child, "#", ". ./venv-dir/bin/activate")
-
-        # Since the pip version in Ubuntu 22.04 is 22.0.2 and the first stable pip that supporting the --report flag is 23.0,
-        # pip needs to be updated in venv. This workaround may be removed later.
-        run_cmd(child, "(venv-dir) #", "pip -q install pip==23.0.1 --progress-bar off --disable-pip-version-check")
 
         for it, package in enumerate(installation_dependencies + packages.splitlines()):
 
@@ -154,7 +150,7 @@ def add_repos(repos: str):
 
         print(f'Cloning {repo}' + f' to {folder}' if folder != '' else '')
 
-        child = px.spawn(f'sh -c "cd {os.getcwd()};exec /bin/sh"', encoding="utf-8", timeout=10)
+        child = px.spawn(f'sh -c "cd {os.getcwd()}; exec /bin/sh"', encoding="utf-8", timeout=10)  # noqa: E702
 
         try:
             child.expect_exact('#')
