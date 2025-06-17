@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Antmicro Ltd.
+# Copyright 2022-2025 Antmicro Ltd.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ archs: Dict[str, Architecture] = {
     ),
     "arm32": Architecture(
         python_name="armv7l",
-        docker_name="arm32v7",
+        docker_name="arm",
         default_board="zynq_7000",
         network_available=True,
     ),
