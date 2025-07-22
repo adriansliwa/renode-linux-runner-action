@@ -21,6 +21,8 @@ from time import sleep
 import queue
 import pexpect as px
 
+import sys
+
 
 class Shell:
     """
@@ -61,6 +63,7 @@ class Shell:
                     encoding="utf-8",
                     timeout=None
                 )
+                self.child.logfile = sys.stdout.buffer
 
             except px.EOF:
                 retries -= 1
