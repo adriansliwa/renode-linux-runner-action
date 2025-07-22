@@ -129,6 +129,7 @@ jobs:
       - name: test
         uses: ./
         with:
+          arch: riscv64
           shared-dirs: tests
           renode-run: |
             wget example.org
@@ -161,6 +162,7 @@ jobs:
       - name: test
         uses: ./
         with:
+          arch: riscv64
           rootfs-size: +128M
           shared-dirs: |
             shared_dir /home/shared_dir
