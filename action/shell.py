@@ -63,7 +63,7 @@ class Shell:
                     encoding="utf-8",
                     timeout=None
                 )
-                self.child.logfile = sys.stdout.buffer
+                self.child.logfile = sys.stdout
 
             except px.EOF:
                 retries -= 1
