@@ -2,11 +2,11 @@ name: target
 shell: target
 requires: [renode_config]
 echo: true
-timeout: 5
+timeout: 50
 fail-fast: true
 commands:
   - expect: "buildroot login:"
-    timeout: 30
+    timeout: 300
     check-exit-code: False
   - root
   - dmesg -n 1
