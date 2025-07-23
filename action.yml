@@ -99,7 +99,7 @@ runs:
         sudo apt-get -y install --no-install-recommends git automake cmake autoconf libtool g++ coreutils policykit-1 libgtk-3-dev uml-utilities gtk-sharp3 python3 python3-pip dotnet-sdk-8.0
         git clone https://github.com/adriansliwa/renode
         cd renode
-        git checkout tags/v1.13.3
+        git checkout a72a1fa1eff75b8ce9f2a7067ef12e8b2f402281
         ./build.sh --net -o /opt/renode
         cd ${GITHUB_ACTION_PATH} &&                                                                                                                         \
         # wget -q --no-verbose https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/renode-${RENODE_VERSION}.linux-portable.tar.gz && \
