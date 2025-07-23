@@ -95,19 +95,20 @@ runs:
 
     - id: install-packages
       run: |
-        # sudo apt-get -qqy update
-        # sudo apt-get -y install --no-install-recommends git automake cmake autoconf libtool g++ coreutils policykit-1 libgtk-3-dev uml-utilities gtk-sharp3 python3 python3-pip dotnet-sdk-8.0
-        # git clone https://github.com/adriansliwa/renode
-        # cd renode
-        # git checkout tags/v1.13.3
-        # ./build.sh --net
+        sudo apt-get -qqy update
+        sudo apt-get -y install --no-install-recommends git automake cmake autoconf libtool g++ coreutils policykit-1 libgtk-3-dev uml-utilities gtk-sharp3 python3 python3-pip dotnet-sdk-8.0
+        git clone https://github.com/adriansliwa/renode
+        cd renode
+        git checkout tags/v1.13.3
+        ./build.sh --net -o /opt/renode
         cd ${GITHUB_ACTION_PATH} &&                                                                                                                         \
-        wget -q --no-verbose https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/renode-${RENODE_VERSION}.linux-portable.tar.gz && \
-        mkdir /opt/renode && tar xzf renode-${RENODE_VERSION}.linux-portable.tar.gz --strip-components=1 -C /opt/renode &&                           \
-        rm renode-${RENODE_VERSION}.linux-portable.tar.gz &&                                                                                         \
+        # wget -q --no-verbose https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/renode-${RENODE_VERSION}.linux-portable.tar.gz && \
+        # mkdir /opt/renode && tar xzf renode-${RENODE_VERSION}.linux-portable.tar.gz --strip-components=1 -C /opt/renode &&                           \
+        # rm renode-${RENODE_VERSION}.linux-portable.tar.gz &&                                                                                         \
         echo "PATH=$PATH:/opt/renode" >> "$GITHUB_ENV" &&                                                                                                   \
         sudo DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends python3-venv &&                                                      \
         sudo pip3 install -r requirements.txt
+        ls /opt/renode/bin/Release
       shell: bash
       env:
         RENODE_VERSION: "1.15.3"
