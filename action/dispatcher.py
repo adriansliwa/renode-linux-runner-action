@@ -54,7 +54,7 @@ class CommandDispatcher:
             ], 5, "#"],
             "renode": ["telnet 127.0.0.1 1234", self.default_stdout, [
                 Command(command="", expect="(monitor)", timeout=600),
-                Command(command="emulation CreateServerSocketTerminal 3456 \"term\"", expect="(monitor)", timeout=500),
+                Command(command="emulation CreateServerSocketTerminal 3456 \"term\"", expect="(", timeout=500),
             ], 3, r"\([\-a-zA-Z\d\s]+\)"],
             "target": ["telnet 127.0.0.1 3456", self.default_stdout, [], 0, "#"],
         }
