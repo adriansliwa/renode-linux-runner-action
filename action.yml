@@ -102,7 +102,8 @@ runs:
         git checkout a72a1fa1eff75b8ce9f2a7067ef12e8b2f402281
         git submodule init
         git submodule update --init --recursive
-        grep -vwE 'Werror' src/Infrastructure/src/Emulator/Cores/translate_NET.cproj > src/Infrastructure/src/Emulator/Cores/translate_NET.cproj
+        grep -vwE 'Werror' src/Infrastructure/src/Emulator/Cores/translate_NET.cproj > /tmp/a
+        mv /tmp/a src/Infrastructure/src/Emulator/Cores/translate_NET.cproj
         ./build.sh --net -o /opt/renode
         cd ${GITHUB_ACTION_PATH} &&                                                                                                                         \
         # wget -q --no-verbose https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/renode-${RENODE_VERSION}.linux-portable.tar.gz && \
