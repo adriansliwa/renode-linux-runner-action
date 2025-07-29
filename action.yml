@@ -96,7 +96,7 @@ runs:
     - id: install-packages
       run: |
         cd ${GITHUB_ACTION_PATH} &&                                                                                                                         \
-        wget -q --no-verbose https://github.com/renode/renode/releases/download/v${RENODE_VERSION}/renode-${RENODE_VERSION}.linux-portable-dotnet.tar.gz && \
+        wget -q --no-verbose https://github.com/adriansliwa/renode-linux-runner-action/releases/download/main2/renode-1.15.3.linux-portable-dotnet.tar.gz && \
         mkdir /opt/renode && tar xzf renode-${RENODE_VERSION}.linux-portable-dotnet.tar.gz --strip-components=1 -C /opt/renode &&                           \
         rm renode-${RENODE_VERSION}.linux-portable-dotnet.tar.gz &&                                                                                         \
         echo "PATH=$PATH:/opt/renode" >> "$GITHUB_ENV" &&                                                                                                   \
